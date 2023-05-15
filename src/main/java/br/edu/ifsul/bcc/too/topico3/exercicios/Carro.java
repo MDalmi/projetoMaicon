@@ -11,13 +11,14 @@ import java.util.List;
 
 public class Carro {
     
+   
    private String nome;
    private String modelo;
    private String fabricante;
    private String numeroChassi;
    private Double valor;
    
-   private List<Pneu> pneus;
+  // private List<Pneu> pneus;
    
    public Carro(){
        
@@ -38,12 +39,12 @@ public class Carro {
                 this.valor= valor;
    }
    
-   public void setPneu(Pneu p){
+  // public void setPneu(Pneu p){
        
-       if(pneus == null){
-           pneus  = new ArrayList();
-       }
-       pneus.add(p);
-   }
+    //   if(pneus == null){
+   //        pneus  = new ArrayList();
+   //    }
+   //    pneus.add(p);
+  // }
    
 }

@@ -2,31 +2,40 @@
 package br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses;
 
 import java.util.Calendar;
-import javax.print.DocFlavor;
 
-public class Pessoa {
+/**
+ *
+ * @author telmo
+ */
+public  class Pessoa {
     
-    /*campos da tabela*/
+    /* campos da tabela -> atributos da instância*/
     public String cpf;
-    public String rg;
-    public String nome;
-    public String logradouro;
-    public String cep;
+    private String rg;
+    private String nome;
+    private String logradouro;
+    private String cep;
     public Integer numero;
-    public String telefone;
-    public Calendar data_cadastro;
-    public Calendar data_nascimento;
-    public Integer idade;
+    private String telefone;
+    private Calendar data_cadastro;
+    private Calendar data_nascimento;
+    private Integer idade;
     
-    /*construtor padrão: protegido e sem parâmetros.*/
+    /*construtor padrão: protegido e sem parâmetros. */
     public Pessoa(){
         
-        
-        
     }
-    /*polimorfismo*/
-    public Pessoa(String cpf, String rg, String nome, String logradouro, String cep, Integer numero, String telefone, Calendar data_cadastro, Integer idade, Calendar data_nascimento){
-        
+    /*polimorfismo: vaŕias formas*/
+    public Pessoa(String cpf, 
+                  String rg, 
+                  String nome, 
+                  String logradouro,
+                  String cep,
+                  Integer numero,
+                  String telefone,
+                  Calendar data_cadastro,
+                  Calendar data_nascimento){
+        //atributo da instancia recebe o valor recebido por parâmetro.
         this.cpf = cpf;
         this.rg = rg;
         this.nome = nome;
@@ -35,13 +44,33 @@ public class Pessoa {
         this.numero = numero;
         this.telefone = telefone;
         this.data_cadastro = data_cadastro;
-        this.idade = idade;
         this.data_nascimento = data_nascimento;
+        //Exercicio para 15/05/2023 - calcular aqui a idade da pessoa.
+        this.idade = 0;
         
+        int ano_nascimento = data_nascimento.get(Calendar.YEAR);
         
+        int ano_atual = Calendar.getInstance().get(Calendar.YEAR);
+        
+        this.idade = ano_atual - ano_nascimento;
         
     }
-    
-   
+    public String getCPF(){
+        return this.cpf;
+    }
+    public String getNome(){
+        return this.nome;
+    }
+    public Integer getIdade(){
+        return this.idade;
+    }
+    public void setDataNascimento(Calendar c){
+        this.data_nascimento = c;        
+        //Exercicio para 15/05/2023 - calcular aqui a idade da pessoa.        
+        this.idade = 0;
+    }
+    public Calendar getDataNascimento(){
+        return this.data_nascimento;
+    }
     
 }

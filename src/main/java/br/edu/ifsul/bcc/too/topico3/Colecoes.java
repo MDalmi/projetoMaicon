@@ -109,7 +109,7 @@ public class Colecoes {
                 
         for( Object o : st){
             
-            System.out.println("Elemento do Set: "+ (String)  o);
+            System.out.println("Elemento do Set: "+ o);
         }                        
     }
     
