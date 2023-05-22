@@ -4,6 +4,8 @@
  */
 package br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses;
 
+import java.util.Calendar;
+
 /**
  *
  * @author dalmi
@@ -14,10 +16,17 @@ public class Aluno extends Pessoa {
     
     Aluno(){
         
+        
+        
     }
     
     public Aluno(String matricula){
+        
+        super(null, null, null, null, null, 0, null, Calendar.getInstance(), Calendar.getInstance());
         this.matricula = matricula;
+        
+        
+        
     }
     
     public void setMatricula(String c){

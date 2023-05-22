@@ -7,7 +7,7 @@ import java.util.Calendar;
  *
  * @author telmo
  */
-public  class Pessoa {
+public  class Pessoa  implements Comparable<Pessoa>{
     
     /* campos da tabela -> atributos da instância*/
     public String cpf;
@@ -71,6 +71,14 @@ public  class Pessoa {
     }
     public Calendar getDataNascimento(){
         return this.data_nascimento;
+    }
+    
+    
+    @Override
+    public int compareTo(Pessoa p){
+        //implementação da classificação
+        return p.getDataNascimento().compareTo(this.data_nascimento);
+        
     }
     
 }

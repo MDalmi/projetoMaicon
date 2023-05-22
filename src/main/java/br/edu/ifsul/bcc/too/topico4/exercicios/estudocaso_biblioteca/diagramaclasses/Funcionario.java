@@ -21,11 +21,16 @@ public class Funcionario extends Pessoa{
             
     }
     
-    public Funcionario(String numero_ctps){
+    public Funcionario(String numero_ctps, String cpf){
         
+        // passar demais informações
+        
+        super(cpf, null, null, null, null, 0, null, Calendar.getInstance(), Calendar.getInstance());
         this.numero_ctps = numero_ctps;
        
     }
+    
+    
     
      public void setNumero_ctps(String c){
         this.numero_ctps = c;        
