@@ -5,6 +5,7 @@
 package br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses;
 
 import java.util.Calendar;
+import java.util.Collection;
 
 /**
  *
@@ -20,6 +21,8 @@ public class Emprestimo {
     private Funcionario funcionario;
     private Aluno aluno;
     private Exemplar exemplar;
+    
+    private Collection<Parcelamento> parcelas;
     
     public Emprestimo(Integer id){
         

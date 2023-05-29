@@ -1,11 +1,11 @@
 package br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca;
 
-import br.edu.ifsul.bcc.too.topico3.exercicios.Exercicio1;
 import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Funcionario;
 import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Pessoa;
 import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Aluno;
 import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Emprestimo;
 import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Exemplar;
+import br.edu.ifsul.bcc.too.topico4.exercicios.estudocaso_biblioteca.diagramaclasses.Parcelamento;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -21,6 +21,16 @@ import java.util.List;
 public abstract class Biblioteca {
 
     Biblioteca() {
+             
+     /*
+        Exercício 2: resolver o problema de sintaxe "new Pessoa()", criando
+        um construtor na classe Aluno, que receba os parâmetros(String cpf, 
+        String rg, String nome, String logradouro, String cep, Integer numero,
+        String telefone,Calendar data_cadastro, Calendar data_nascimento e matricula)
+        Os primeiros 9 parâmetros deverão ser encaminhados para o construtor
+        de Pessoa, utilizando o comando super(cpf, rg, ...).
+        O décimo parâmetro deverá ser atribuido para o atributo da instância.
+    */    
  
        /*definir/setar/guardar valores para os demais atributos do objeto p*/
         /*alternativa 1 : atraves do construtor*/
@@ -51,7 +61,6 @@ public abstract class Biblioteca {
             
         }   
     }
-    
     
     private Collection<Pessoa> exercicio01() {
 
@@ -100,15 +109,7 @@ public abstract class Biblioteca {
         return listagem;
     }
     
-    /*
-        Exercício 2: resolver o problema de sintaxe "new Pessoa()", criando
-        um construtor na classe Aluno, que receba os parâmetros(String cpf, 
-        String rg, String nome, String logradouro, String cep, Integer numero,
-        String telefone,Calendar data_cadastro, Calendar data_nascimento e matricula)
-        Os primeiros 9 parâmetros deverão ser encaminhados para o construtor
-        de Pessoa, utilizando o comando super(cpf, rg, ...).
-        O décimo parâmetro deverá ser atribuido para o atributo da instância.
-    */    
+   
     /*
         Exercício 3: criar um método que retorne uma coleção de Empréstimo. Esse método deverá
         receber por parâmetro uma lista de Funcionario, Aluno e Exemplar. Cada elemento recebido
@@ -117,24 +118,43 @@ public abstract class Biblioteca {
     
     private Collection<Emprestimo> exercicio03(List<Funcionario> listFunc, List<Aluno> listAluno, List<Exemplar> listExemp){
         
-       Collection<Emprestimo> listRetorno = new ArrayList<>();
-        
+       Collection<Emprestimo> listRetorno = new ArrayList<>();  
        for(Exemplar ex: listExemp){
            
-           
-        
+          
            
        }
         
-
        return listRetorno;
     }
-    
    
     /*
         Exercicio 4: testar o método criado na questão 3 (chamar e imprimir o retorno).
+    
+    Exer 5
+    Criar um método que receba por pârametro um Funcionario, Aluno e Exemplar e um inteiro para
+    representar a quantidade de parcelas.
+    
+    Calcule o valor do emprestimo em X vezes e adicione na lista de parcelamento.
+    Esse métood deverá retornar uma instancia de emprestimo.
+    
     */
     
+     private Collection<Parcelamento> exercicio05(List<Funcionario> listFunc, List<Aluno> listAluno, List<Exemplar> listExemp, Integer num){
+    
+         Collection<Parcelamento> listRetorno = new ArrayList<>();     
+         
+         
+         
+         
+         return listRetorno;
+    }
+    
+    
+    /*
+    exer 6
+    testar o método 5
+    */
     
 
     public static void main(String args[]) {
