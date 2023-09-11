@@ -64,9 +64,29 @@ public class Exercicio5 {
     }
 
     private void teste2Split(String Param2) {
-        
+
+        Param2 = Param2.trim();
         String[] partes;
         partes = Param2.split(",");
+
+        if (partes.length == 0) {
+            System.out.println("Se ta mal");
+        } else {
+            for (String p : partes) {
+
+                System.out.println("p: " + p);
+                System.out.println("Indice do espaço: " + p.indexOf(" "));
+                System.out.println("Indice do } " + p.indexOf("}"));
+
+                String subP = p.substring(
+                        p.indexOf(" ") + 1,
+                        p.indexOf("}"));
+
+                Integer valor = Integer.valueOf(subP);
+                
+                System.out.println( valor);
+            }
+        }
 
     }
 
