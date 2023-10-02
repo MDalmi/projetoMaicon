@@ -26,7 +26,7 @@ public class TesteData {
     private SimpleDateFormat formatador;
 
     public TesteData() {
-
+/*
         System.out.println("Testes com datas: ");
 
         dataCalendar = Calendar.getInstance(); // inicializar
@@ -81,11 +81,11 @@ public class TesteData {
         O método retorna 0 se o argumento passado for igual a este objeto Calendário.
         O método retorna 1 se o tempo deste objeto Calendário for maior que o objeto passado.
         O método retorna -1 se o tempo deste objeto Calendário for menor que o objeto passado.
-         */
+         
         System.out.println(dataDate.compareTo(dataCalendar.getTime()));
-        
+        */
         Exercicio2();
-        Exercicio3();
+        //Exercicio3();
 
     }
 
