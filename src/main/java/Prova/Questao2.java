@@ -4,6 +4,7 @@
  */
 package Prova;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,7 +28,6 @@ public class Questao2 {
 
     private Map<Integer, java.util.Calendar> mapDados = new HashMap<>();
     private String dadosString = "{codigo:10, data:'2022-01-31'}; {codigo:20, data:'1999-10-1'};{codigo:30, data:'1994-06-15'}";
-    SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
     public Questao2() {
 
@@ -40,26 +40,31 @@ public class Questao2 {
         Calendar cal = Calendar.getInstance();
         String d[] = dadosString.split(";");
         int i = 0;
+
         while (i < d.length) {
+
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
             try {
 
-                String codigo = d[i].substring(d[i].indexOf(":") + 1,
-                        d[i].indexOf(","));
+                String codigo = d[i].substring(d[i].indexOf(":") + 1, d[i].indexOf(",")).trim();
 
                 Integer numero = Integer.parseInt(codigo);
 
                 String data = d[i].substring(d[i].indexOf(":",
                         d[i].indexOf(",")) + 2, d[i].indexOf("'}"));
 
-                
-                 
                 cal.setTime(formato.parse(data));
-                
-                mapDados.put(numero, cal);
 
-            } catch (Exception e) {
-                e.printStackTrace();
+               
+                    
+                    mapDados.put(numero, cal);
+                    
+                
+                
+
+            } catch (ParseException e) {
+
             }
 
             i++;
@@ -75,13 +80,20 @@ public class Questao2 {
     chamada do método manipulacaoStrings
      */
     public void mostrarString() {
-        
-        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
-       
-        
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Calendar data = Calendar.getInstance();
+
         for (Map.Entry<Integer, Calendar> m : mapDados.entrySet()) {
-            System.out.println("Codigo: " + m.getKey() + " Data: " + m.getValue());
+
+            data = m.getValue();
+            String data_formatada = formato.format(data.getTime());
+            Integer key = m.getKey();
+
+            System.out.println("Codigo: " + key + " Data: " + data_formatada);
+
+            System.out.println(m.getValue());
+
         }
 
     }

@@ -36,6 +36,7 @@ public class TesteData {
         //dataCalendar.set(Calendar.DAY_OF_MONTH, 12);
         //dataCalendar.set(Calendar.YEAR, 1983);
         //dataCalendar.set(Calendar.MONTH, 1);
+        
         String data_formatada = formatador.format(dataCalendar.getTime());
 
         System.out.println("Data Calendar Formatada: " + data_formatada);
