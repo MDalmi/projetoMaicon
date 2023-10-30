@@ -1,5 +1,5 @@
 
-package br.edu.ifsul.bcc.too.base.topico4;
+package br.edu.ifsul.bcc.too.topico4;
 
 import com.sun.jdi.InterfaceType;
 import java.text.SimpleDateFormat;
@@ -11,22 +11,19 @@ import java.util.logging.Logger;
  *
  * @author telmo
  */
-public class InterfacesJava implements ExemploInterface{
+public final class InterfacesJava implements ExemploInterface{
     
     InterfacesJava(){
         
         try {
-            System.out.println(""+getDataAtual());
+            System.out.println("Data Atual: "+getDataAtual());
+            System.out.println("Ano Atual: "+getAnoAtual());
             
             //  System.out.println("DAta atual: "+getDataAtual());
         } catch (Exception ex) {
             Logger.getLogger(InterfacesJava.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-
-    
-    
     //https://www.devmedia.com.br/interfaces-programacao-orientada-a-objetos/18695
     
     /*
@@ -40,8 +37,7 @@ public class InterfacesJava implements ExemploInterface{
     podemos dizer que as interfaces definem certas funcionalidades, as quais dependem das classes que implementam as interfaces 
     para que os métodos existam.    
     */
-    
-    
+       
     public static void main(String args[]){
         
         new InterfacesJava();
@@ -61,7 +57,10 @@ public class InterfacesJava implements ExemploInterface{
 
     @Override
     public int getAnoAtual() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       java.util.Date dt = new java.util.Date();
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
+       return Integer.valueOf(sdf.format(dt));
+       
     }
     
     
