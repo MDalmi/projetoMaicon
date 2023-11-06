@@ -2,6 +2,7 @@ package br.edu.ifsul.bcc.too.topico4;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.text.DecimalFormat;
 
 /**
  *
@@ -41,26 +42,29 @@ public class PessoaEncapsulada {
     //Existem dois tipos de polimorfismo: sobrecarga (orverload) e sobreposição (override).
     //Sobrecarga: permite a existencia de mais de um método com o mesmo nome, porém, 
     //com assinatura diferente (quantidade e tipo de argumentos/parâmetros)
-    protected PessoaEncapsulada(String cpf, String nome) {
+    protected PessoaEncapsulada(String cpf, String nome, Integer idade) {
 
         this.cpf = cpf;
         this.nome = nome;
+        this.idade = idade;
     }
 
     //Sobreposição: permite reescrever um método em uma subclasse que possua comportamento diferente
     //do método de mesma assinatura na superclasse.
+    //DecimalFormat formato = new DecimalFormat("000.000.000-00");
     @Override
     public String toString() {
 
-         cpf.formatted(cpf, 1, 3 + "." + cpf, 4, 6 + "." + cpf, 7, 9 + "/" + cpf, 10, 11);
-
-        return this.cpf;
+       String cpfFormatado = String.format("%s.%s.%s-%s", this.cpf.substring(0, 3), this.cpf.substring(3, 6), this.cpf.substring(6, 9), this.cpf.substring(9));
+       return cpfFormatado;
+        
+        
+    
     }
 
     //encapsulamento: restringe o acesso ao atributo da instância e libera o acesso vai método público.
     //dessa forma é possível controlar o que será retornado.
     public String getCPF(String cpf) {
-
 
         return this.cpf;
     }
@@ -68,8 +72,7 @@ public class PessoaEncapsulada {
     public void setCPF(String cpf) {
         if (cpf.length() == 11) {
             this.cpf = cpf;
-           
-            
+
         }
     }
 
@@ -93,7 +96,20 @@ public class PessoaEncapsulada {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
         anoatual = Integer.valueOf(sdf.format(dt));
 
-        this.idade = ano - anoatual;
+        this.idade = anoatual - ano;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
+    }
+
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public Calendar getDataNascimento() {
+
+        return dataNascimento;
     }
 
 }
