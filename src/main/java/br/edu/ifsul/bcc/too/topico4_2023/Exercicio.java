@@ -2,17 +2,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.edu.ifsul.bcc.too.topico4;
+package br.edu.ifsul.bcc.too.topico4_2023;
 
+import br.edu.ifsul.bcc.too.topico4_2023.Aluno;
+import br.edu.ifsul.bcc.too.topico4_2023.Pessoa;
+import br.edu.ifsul.bcc.too.topico4_2023.Funcionario;
+import br.edu.ifsul.bcc.too.topico4_2023.Cliente;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
+import javax.annotation.processing.Generated;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author dalmi
  */
 public class Exercicio {
+
+    private SimpleDateFormat formatadorData;
 
     public Exercicio() {
 
@@ -23,8 +32,56 @@ public class Exercicio {
 
         imprimePessoa(lista2);
 
+        exercicio2();
+
     }
 
+    public void exercicio2() {
+        Cliente c = generateCliente();
+        Produto p = null;
+        Foto f = null;
+        Pedido pd = null;
+
+        imprimiPedido(pd);
+    }
+
+    private Cliente generateCliente() {
+
+        formatadorData = new SimpleDateFormat("dd/MM/yyyy");
+
+        String input = JOptionPane.showInputDialog(null, "CPF: ");
+
+        String input1 = JOptionPane.showInputDialog(null, "Data",
+                " Informe data no formato dd/MM/yyyy", JOptionPane.PLAIN_MESSAGE);
+        String input2 = JOptionPane.showInputDialog(null);
+
+        Cliente c = new Cliente();
+
+        Produto p;
+
+        //p.setFoto(input1);
+        //p.setNome(input);
+        //utilizar parse para passar data
+        c.setCpf(input);
+
+        data_util_data = new java.util.Date();
+        
+        data_util_date.setTime(formatadorData.parse(input1).getTime());
+
+        c.setDataNascimento();
+        c.setData_ultima_compra(data_ultima_compra);
+
+        return c;
+    }
+
+    private void imprimiPedido(Pedido mostrar) {
+
+        System.out.println(mostrar);
+    }
+
+    ;
+            
+            
     public Collection<Pessoa> SeiLa() {
 
         Collection<Pessoa> lista;
@@ -47,8 +104,9 @@ public class Exercicio {
         f1.setStatus(Boolean.TRUE);
 
         data.set(Calendar.YEAR, 2015);
-        data.set(Calendar.MONTH, 3);
+        data.set(Calendar.MONTH, 10);
         data.set(Calendar.DAY_OF_MONTH, 10);
+
         f1.setData_admissao(data);
         f1.setNumero_ctps("123123");
         lista.add(f1);
