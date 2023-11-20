@@ -4,6 +4,8 @@
  */
 package br.edu.ifsul.bcc.too.topico4_2023;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 /**
@@ -11,7 +13,7 @@ import java.util.Calendar;
  * @author dalmi
  */
 public class Pessoa {
-    
+
     private String cpf;
     private String rg;
     private String nome;
@@ -35,8 +37,6 @@ public class Pessoa {
         this.status = status;
     }
 
-    
-
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
@@ -44,9 +44,33 @@ public class Pessoa {
     public String getCpf() {
         return cpf;
     }
-    
+
     public void setDataNascimento(Calendar dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public void setDataNascimento(String dataNascimento) {
+
+        if (dataNascimento != null) {
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(sdf.parse(dataNascimento).getTime());
+                this.dataNascimento = c;
+            } catch (ParseException ex) {
+                this.dataNascimento = null;
+            }
+        }
+    }
+
+    public String getDataNascimento_String() {
+        if (this.dataNascimento != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            return sdf.format(this.dataNascimento.getTime());
+        } else {
+            return null;
+        }
+
     }
 
     public Calendar getDataNascimento() {
@@ -100,12 +124,5 @@ public class Pessoa {
     public Boolean getStatus() {
         return status;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
 }

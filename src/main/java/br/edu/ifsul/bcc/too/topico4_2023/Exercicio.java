@@ -8,6 +8,8 @@ import br.edu.ifsul.bcc.too.topico4_2023.Aluno;
 import br.edu.ifsul.bcc.too.topico4_2023.Pessoa;
 import br.edu.ifsul.bcc.too.topico4_2023.Funcionario;
 import br.edu.ifsul.bcc.too.topico4_2023.Cliente;
+import br.edu.ifsul.bcc.too.topico4_2023.Produto;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,67 +23,96 @@ import javax.swing.JOptionPane;
  */
 public class Exercicio {
 
-    private SimpleDateFormat formatadorData;
-
     public Exercicio() {
 
-        Collection<Pessoa> lista2;
-        lista2 = new ArrayList<>();
-
-        lista2 = SeiLa();
-
-        imprimePessoa(lista2);
-
+        //  Collection<Pessoa> lista2;
+        //   lista2 = new ArrayList<>();
+        //lista2 = SeiLa();
+        // imprimePessoa(lista2);
         exercicio2();
 
     }
 
     public void exercicio2() {
         Cliente c = generateCliente();
-        Produto p = null;
-        Foto f = null;
-        Pedido pd = null;
+        Produto p = generateProduto();
+        Foto f = generateFoto();
+        Pedido pd = generatePedido(c, p);
 
         imprimiPedido(pd);
     }
 
-    private Cliente generateCliente() {
+    private Pedido generatePedido(Cliente cliente, Produto produto) {
+        Pedido p = null;
+        Cliente c = null;
 
-        formatadorData = new SimpleDateFormat("dd/MM/yyyy");
+        return p;
+    }
+
+    private Produto generateProduto() {
+        Produto p = new Produto();
+
+        return p;
+    }
+
+    private Foto generateFoto() {
+        Foto p = new Foto();
+        // p.setProdutos();
+
+        return p;
+    }
+
+    private Cliente generateCliente() {
 
         String input = JOptionPane.showInputDialog(null, "CPF: ");
 
         String input1 = JOptionPane.showInputDialog(null, "Data",
                 " Informe data no formato dd/MM/yyyy", JOptionPane.PLAIN_MESSAGE);
-        String input2 = JOptionPane.showInputDialog(null);
+
+        String input2 = JOptionPane.showInputDialog(null, "Nome Completo:");
+
+        String input3 = JOptionPane.showInputDialog(null, "Logradouro:");
+
+        String input4 = JOptionPane.showInputDialog(null, "RG:");
+
+        String input5 = JOptionPane.showInputDialog(null, "Observações:");
+
+        //String input6 = JOptionPane.showInputDialog(null, "Data Ultima compra:",
+         //       " Informe data no formato dd/MM/yyyy", JOptionPane.PLAIN_MESSAGE);
 
         Cliente c = new Cliente();
 
         Produto p;
 
-        //p.setFoto(input1);
-        //p.setNome(input);
-        //utilizar parse para passar data
+        c.setNome(input2);
         c.setCpf(input);
-
-        data_util_data = new java.util.Date();
+        c.setLogradouro(input3);
+        c.setRg(input4);
+        c.setObservacoes(input5);
+        c.setDataNascimento(input1);
         
-        data_util_date.setTime(formatadorData.parse(input1).getTime());
-
-        c.setDataNascimento();
-        c.setData_ultima_compra(data_ultima_compra);
 
         return c;
     }
 
-    private void imprimiPedido(Pedido mostrar) {
+    private void imprimiPedido(Pedido p) {
 
-        System.out.println(mostrar);
+        System.out.println(p.getCodigo());
+        System.out.println("CPF: " + p.getCliente().getCpf());
+
+        for (Produto pdt : p.getProdutos()) {
+            System.out.println("ID: " + pdt.getId());
+            System.out.println("Valor: " + pdt.getValor());
+
+            for (Foto fo : pdt.getFotos()) {
+                System.out.println("Codigo: " + fo.getCodigo());
+                System.out.println("File: " + fo.getFile());
+                System.out.println("FileName: " + fo.getFilename());
+            }
+        }
+
     }
 
-    ;
-            
-            
     public Collection<Pessoa> SeiLa() {
 
         Collection<Pessoa> lista;

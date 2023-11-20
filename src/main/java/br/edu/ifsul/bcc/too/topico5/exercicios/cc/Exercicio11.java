@@ -1,5 +1,5 @@
 
-package br.edu.ifsul.bcc.too.topico5.exercicios;
+package br.edu.ifsul.bcc.too.topico5.exercicios.cc;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

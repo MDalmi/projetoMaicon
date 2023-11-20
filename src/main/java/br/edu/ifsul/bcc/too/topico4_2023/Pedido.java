@@ -6,6 +6,8 @@ package br.edu.ifsul.bcc.too.topico4_2023;
 
 import java.util.Calendar;
 import java.util.Collection;
+import java.util.ArrayList;
+import javax.sound.midi.Soundbank;
 
 /**
  *
@@ -17,7 +19,7 @@ public class Pedido {
     private Calendar data;
     private Float valor_total;
     private Cliente cliente; // criado apartir da associação
-    private Collection<Produto> produtos;
+    private Collection<Produto> produtos; // agregação
 
     public Pedido() {
     }
@@ -76,12 +78,22 @@ public class Pedido {
     public Collection<Produto> getProdutos() {
         return produtos;
     }
- 
-    
-    
-    
-    
-    
+
+    public void setProduto(Produto produto) {
+        if (this.produtos == null) {
+            this.produtos = new ArrayList();
+        }
+        this.produtos.add(produto);
+
+    }
+
+    @Override
+    public String toString() {
+        System.out.println(this.getCliente());
+        System.out.println(this.getProdutos());
+        
+        return null;
+    }
     
     
 

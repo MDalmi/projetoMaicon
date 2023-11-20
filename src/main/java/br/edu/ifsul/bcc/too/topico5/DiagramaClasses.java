@@ -22,12 +22,12 @@ public class DiagramaClasses {
     
         Agregação entre classes: Permite a inclusão de objetos de uma classe no interior de objetos de outra classe                          
     
-                                Objeto que agrega conhece o agregado mas este não conhece aquele → comunicação unidirecional
-                                Na extremidade da classe dos objetos que agregam inclui-se um losango:
+            Objeto que agrega conhece o agregado mas este não conhece aquele → comunicação unidirecional
+            Na extremidade da classe dos objetos que agregam inclui-se um losango:
     
                                 
     
-                Agregação por composição: Entende-se que o objeto agregado é um componente do objeto que agrega.
+            Agregação por composição: Entende-se que o objeto agregado é um componente do objeto que agrega.
     
                                 
     
